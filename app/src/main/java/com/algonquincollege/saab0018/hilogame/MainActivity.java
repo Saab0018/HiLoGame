@@ -55,14 +55,14 @@ public class MainActivity extends AppCompatActivity {
 
 
                 // Reference the userGuessText in the layout.
-                EditText guess = (EditText) findViewById( R.id.userGuess );
+                EditText guessTextField = (EditText) findViewById( R.id.userGuess );
 
                 // GET the userGuess.
-                String userGuess = guess.getText().toString();
+                String userGuess = guessTextField.getText().toString();
 
                 if ( userGuess.isEmpty() ) {
-                    guess.setError( "That is not a number" );
-                    guess.requestFocus();
+                    guessTextField.setError( "That is not a number" );
+                    guessTextField.requestFocus();
                     return;
                 }
 
@@ -74,14 +74,14 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     userNumber = Integer.parseInt(userGuess);
                 } catch( NumberFormatException e ) {
-                    guess.setError( "Enter a number." );
-                    guess.requestFocus();
+                    guessTextField.setError( "Enter a number." );
+                    guessTextField.requestFocus();
                     return;
                 }
 
                 if (userNumber > 1000){
-                    guess.setError( "Enter a number between 1 and 1000" );
-                    guess.requestFocus();
+                    guessTextField.setError( "Enter a number between 1 and 1000" );
+                    guessTextField.requestFocus();
                     return;
 
                 }
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
 
-                 // if number of tries exceed 10, notice user that the game is over
+                // if number of tries exceed 10, notice user that the game is over
                 if (numberOfTries >= 10){
                     Toast.makeText( getApplicationContext(), "Out of tries, game over!", Toast.LENGTH_SHORT ).show();
                     generateNumber();
@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 //clear text field after button is clicked
-                guess.setText("");
+                guessTextField.setText("");
 
 
 
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean onLongClick(View v ) {
 
                 Toast.makeText( getApplicationContext(), "The Number is: " + theNumber, Toast.LENGTH_SHORT ).show();
-              return true;
+                return true;
             }
         });
 
